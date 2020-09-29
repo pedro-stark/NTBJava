@@ -1,0 +1,27 @@
+package KDP.a3_4;
+
+import java.util.Iterator;
+
+public class Basiswechsel {
+
+	public static void ziffernAusgabe(int n) {
+		int ziffer;
+		while (n > 0) {
+			ziffer = n % 10;
+			System.out.print(ziffer + " ");
+			n = n / 10;
+		}
+	}
+
+	public static void main(String[] args) {
+		if (args.length == 0) {
+			System.out.println("Sie sollten mindestens eine Zahl als Argument übergeben");
+			System.exit(1);
+		}
+		for (String s : args) {
+			System.out.println(s);
+		}
+		ziffernAusgabe(Integer.parseInt(args[0]));
+
+	}
+}

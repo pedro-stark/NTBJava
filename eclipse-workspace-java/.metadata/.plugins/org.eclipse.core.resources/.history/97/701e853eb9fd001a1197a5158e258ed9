@@ -1,0 +1,11 @@
+
+public class Stack {
+
+	public StackTest() {
+		Stack stack = new Stack(5);
+		stack.push(new Integer(5));
+		stack.push(new String("abc"));
+		String s = (String)(stack.pop());
+	}
+
+}

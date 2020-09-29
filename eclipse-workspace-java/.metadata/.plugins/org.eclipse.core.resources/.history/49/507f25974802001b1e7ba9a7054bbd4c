@@ -1,0 +1,9 @@
+package KDP;
+
+public class Basiswechselklasse {
+
+	public Basiswechselklasse() {
+		
+	}
+
+}
