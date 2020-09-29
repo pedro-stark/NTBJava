@@ -1,9 +1,0 @@
-package KDP;
-
-public class Basiswechsel {
-
-	public Basiswechsel() {
-	
-	}
-
-}

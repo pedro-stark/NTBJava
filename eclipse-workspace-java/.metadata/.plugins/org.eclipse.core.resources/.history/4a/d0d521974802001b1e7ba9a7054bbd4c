@@ -1,9 +1,0 @@
-package KDP;
-
-public class Basiswechselklasse {
-
-	public Basiswechselklasse() {
-		// TODO Auto-generated constructor stub
-	}
-
-}
