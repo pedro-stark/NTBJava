@@ -1,4 +1,4 @@
-package KDP.a3_4;
+package Aufgaben;
 
 import java.util.Iterator;
 

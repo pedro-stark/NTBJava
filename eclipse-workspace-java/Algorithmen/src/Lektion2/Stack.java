@@ -1,3 +1,4 @@
+package Lektion2;
 public class Stack {
 	private Object[] data;
 	private int stackNr = -1; //Array beginnt bei 0
