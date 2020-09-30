@@ -9,7 +9,7 @@ public class Liste {
 
 		if (head == null) {
 			head = e;
-			System.out.println("Objekt '" + head.data.toString() + "' wurde der Liste hinzugefügt");
+			System.out.println("Objekt '" + head.data.toString() + "' wurde als erstes Objekt der Liste hinzugefügt");
 		} else {
 			Elem p = head;
 			Elem q = null;
@@ -37,19 +37,26 @@ public class Liste {
 
 	public void insert(Object o) {
 		Elem e = new Elem();
-		e.next = head;
-		e.data = o;
-		head = e;
-		System.out.println("Objekt '" + e.data.toString() + "' wurde an der Spitze der Liste hinzugefügt");
+
+		if (head == null) {
+			e.data = o;
+			head = e;
+			System.out.println("Objekt '" + head.data.toString() + "' wurde als erstes Objekt der Liste hinzugefügt");
+		} else {
+			e.next = head;
+			e.data = o;
+			head = e;
+			System.out.println("Objekt '" + e.data.toString() + "' wurde an der Spitze der Liste hinzugefügt");
+		}
 	}
 
 	public void delete(Object o) {
 		Elem p = head;
 		Elem q = null;
-		
+
 		System.out.println("Suche Objekt '" + o.toString() + "'");
-				
-		while (p.data != o) {
+
+		while (p.data != o) { // TODO endlos-Loop abfangen
 			q = p;
 			p = p.next;
 		}
@@ -58,24 +65,33 @@ public class Liste {
 	}
 
 	public void printBackwards() {
-		// TODO
+		Elem p = head;
+		Liste l = new Liste();
+		int i = 1;
 
-		/*
-		 * Tipp Grun:
-		 * 1) Ende finden
-		 * 2) while (p != head){
-		 * 		finde Vorgänge von p
-		 *  }
-		 *  
-		 *  ...es gibt auch eine rekursive Lösung
-		 */
+		while (p != null) {
+			l.insert(p.data);
+			p = p.next;
+		}
 		
+		p = l.head;
+		while (p != null) {
+			System.out.print("backwardsprint " + i + ": ");
+			System.out.println(p.data.toString());
+			p = p.next;
+			i++;
+		}
+		/*
+		 * Tipp Grun: 1) Ende finden 2) while (p != head){ finde Vorgänge von p }
+		 * 
+		 * ...es gibt auch eine rekursive Lösung
+		 */
 	}
 
 	public int length() {
 		Elem p = head;
-		int i = 0; //Zählt in while-Schlaufe eins zu hoch darum 0
-		
+		int i = 0; // Zählt in while-Schlaufe eins zu hoch darum 0
+
 		while (p != null) {
 			p = p.next;
 			i++;
@@ -94,7 +110,12 @@ public class Liste {
 	}
 
 	public boolean hasOneElement() {
-		// TODO
-		return true;
+		boolean hasOneElement;
+		if (head != null && head.next == null) {
+			hasOneElement = true;
+		} else {
+			hasOneElement = false;
+		}
+		return hasOneElement;
 	}
 }
