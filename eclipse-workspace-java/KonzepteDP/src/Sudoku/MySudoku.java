@@ -1,3 +1,4 @@
+package Sudoku;
 public class MySudoku extends Sudoku {
 
 	public void doUpdate() {
