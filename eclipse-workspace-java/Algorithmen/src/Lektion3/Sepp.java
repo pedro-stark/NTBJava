@@ -1,6 +1,7 @@
 package Lektion3;
 
-public class Sepp {
+public class Sepp { //Sepp soll ein Abzählvers sein
+					//Fragestellung: wer gewinnt?
 	static Kasten aufstellen(String[] name) {
 		Kasten p;
 		Kasten anfang;
@@ -29,7 +30,7 @@ public class Sepp {
 	public static void main(String[] arg) {
 		Kasten ref;
 		int vLnge = 7;
-		String[] namen = {"Anna","Berta","Emil","Max","Otto"};
+		String[] namen = {"Anna","Berta","Emil","Max","Otto", "Otto2", "Otto3", "Otto4", "Otto5", "Otto6", "Otto7"};
 		ref = aufstellen(namen);
 		abzaehlen(ref,vLnge);
 	}

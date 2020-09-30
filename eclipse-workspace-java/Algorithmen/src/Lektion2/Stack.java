@@ -1,7 +1,8 @@
 package Lektion2;
+
 public class Stack {
 	private Object[] data;
-	private int stackNr = -1; //Array beginnt bei 0
+	private int stackNr = -1; // Array beginnt bei 0
 	private int maxSize;
 
 	public Stack(int size) {
@@ -10,11 +11,17 @@ public class Stack {
 	}
 
 	public boolean isEmpty() {
-		return (stackNr >= 0) ? false : true;
+		boolean isEmpty;
+		if (stackNr > -1) {
+			isEmpty = false;
+		} else {
+			isEmpty = true;
+		}
+		return isEmpty;
 	}
-	
+
 	public void push(Object o) {
-		if (stackNr +1 >= maxSize) {
+		if (stackNr >= maxSize -1) {
 			System.out.println("full");
 		} else {
 			stackNr++;
@@ -24,7 +31,7 @@ public class Stack {
 
 	public Object pop() {
 		Object o = new Object();
-		if (stackNr <= 0) {
+		if (stackNr <= -1) {
 			System.out.println("empty");
 		} else {
 			o = data[stackNr];
