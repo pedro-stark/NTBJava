@@ -56,7 +56,7 @@ public class Liste {
 
 		System.out.println("Suche Objekt '" + o.toString() + "'");
 
-		while (p.data != o) { // TODO endlos-Loop abfangen
+		while (p.data != o) { // TODO endlos-Loop abfangen, first und last object abfangen
 			q = p;
 			p = p.next;
 		}
