@@ -23,7 +23,7 @@ public class Liste {
 		}
 	}
 
-	public void print() {
+	public void print() { // Zeitkomplexität: O(n)
 		Elem p = head;
 		int i = 1;
 
@@ -35,28 +35,27 @@ public class Liste {
 		}
 	}
 
-	public void insert(Object o) {
+	public void insert(Object o) { // Zeitkomplexität: O(1)
 		Elem e = new Elem();
+		e.data = o;
 
 		if (head == null) {
-			e.data = o;
 			head = e;
 			System.out.println("Objekt '" + head.data.toString() + "' wurde als erstes Objekt der Liste hinzugefügt");
 		} else {
 			e.next = head;
-			e.data = o;
 			head = e;
 			System.out.println("Objekt '" + e.data.toString() + "' wurde an der Spitze der Liste hinzugefügt");
 		}
 	}
 
-	public void delete(Object o) {
+	public void delete(Object o) { // Zeitkomplexität: O(n)
 		Elem p = head;
 		Elem q = null;
 
 		System.out.println("Suche Objekt '" + o.toString() + "'");
 
-		while (p.data != o) { // TODO endlos-Loop abfangen, first und last object abfangen
+		while (p.data != o) { // TODO endlos-Loop abfangen, wenn Objekt nicht vorhanden , first und last object abfangen
 			q = p;
 			p = p.next;
 		}
@@ -64,8 +63,8 @@ public class Liste {
 		System.out.println("Objekt '" + p.data.toString() + "' wurde von der Liste entfernt");
 	}
 
-	public void printBackwards() {
-		Elem p = head;
+	public void printBackwards() { // Zeitkomplexität: O(n)
+		Elem p = head;			   // Speicherkomplexität: O(n)
 		Liste l = new Liste();
 		int i = 1;
 
@@ -73,7 +72,7 @@ public class Liste {
 			l.insert(p.data);
 			p = p.next;
 		}
-		
+
 		p = l.head;
 		while (p != null) {
 			System.out.print("backwardsprint " + i + ": ");
@@ -81,14 +80,9 @@ public class Liste {
 			p = p.next;
 			i++;
 		}
-		/*
-		 * Tipp Grun: 1) Ende finden 2) while (p != head){ finde Vorgänge von p }
-		 * 
-		 * ...es gibt auch eine rekursive Lösung
-		 */
 	}
 
-	public int length() {
+	public int length() { // Zeitkomplexität: O(n)
 		Elem p = head;
 		int i = 0; // Zählt in while-Schlaufe eins zu hoch darum 0
 
@@ -99,7 +93,7 @@ public class Liste {
 		return i;
 	}
 
-	public boolean isEmpty() {
+	public boolean isEmpty() { // Zeitkomplexität: O(1)
 		boolean isEmpty;
 		if (head == null) {
 			isEmpty = true;
@@ -107,15 +101,17 @@ public class Liste {
 			isEmpty = false;
 		}
 		return isEmpty;
+		//Oder als Einzeiler: return head == null;
 	}
 
-	public boolean hasOneElement() {
+	public boolean hasOneElement() { // Zeitkomplexität: O(1)
 		boolean hasOneElement;
-		if (head != null && head.next == null) {
+		if (head != null && head.next == null) { //Diese Anweisung zu drehen könnte zu einem Fehler führen
 			hasOneElement = true;
 		} else {
 			hasOneElement = false;
 		}
 		return hasOneElement;
+		//Oder als Einzeiler: return head != null && head.next == null;
 	}
 }
