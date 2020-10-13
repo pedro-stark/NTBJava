@@ -1,6 +1,6 @@
 package Lektion3;
 
 public class Elem {
-	Object data;
-	Elem next; //Referenz auf nächstes Element
+	public Object data;
+	public Elem next; //Referenz auf nächstes Element
 }
