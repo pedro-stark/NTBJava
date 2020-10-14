@@ -16,9 +16,8 @@ public class Liste {
 			head.prev = null;
 			System.out.println("Objekt '" + head.data.toString() + "' wurde als 1. Objekt der Liste hinzugefügt");
 			length = 1;
-		} else if (head.next == null || tail.prev == null) { // zweites Objekt abfangen, dass tail auf head zeigt und
-																// umgekehrt
-			head.next = e;
+		} else if (head.next == null || tail.prev == null) { // zweites Objekt abfangen, dass tail <--> head
+			head.next = e; //nicht nötig, da kein Spezialfall (siehe else)
 			tail = e;
 			tail.prev = head;
 			System.out.println("Objekt '" + tail.data.toString() + "' wurde als 2. Objekt der Liste hinzugefügt");
@@ -59,7 +58,7 @@ public class Liste {
 			System.out.println("Objekt '" + head.data.toString() + "' wurde als 1. Objekt der Liste hinzugefügt");
 			length = 1;
 		} else if (head.next == null || tail.prev == null) { // zweites Objekt abfangen, dass tail <--> head
-			tail.prev = e;
+			tail.prev = e; //nicht nötig, da kein Spezialfall (siehe else)
 			head = e;
 			head.next = tail;
 			System.out
@@ -82,18 +81,19 @@ public class Liste {
 		
 		if (head.data == o) { //erstes Objekt?
 			head = head.next;
+			head.prev = null;
 			length--;
 		} else if (tail.data == o) { //letztes Objekt?
 			tail = tail.prev;
+			tail.next = null;
 			length--;
 		} else {  //irgendwas dazwischen
 			Elem p = head;
 			Elem q = null; 
-			while (p.data != o) {
-				// TODO Auch Verknüpfung durch prev löschen (siehe Backwardsprint)
+			while (p.data != o) { //auch möglich mit: while(p!=null && p.data==o) muss dann aber weiter unten abgefangen werden
 				q = p;
 				p = p.next;
-				if (p.next == null) { //Endlos-Loop abfangen
+				if (p.next == null) { //Abbruch, falls Elem nicht vorhanden in Liste
 					System.out.println("Objekt '" + o.toString() + "' konnte nicht gefunden werden.");
 					return;
 				}
@@ -116,13 +116,13 @@ public class Liste {
 		}
 	}
 
-	public int length() { // Zeitkomplexität: O(n)
+	public int length() { // Zeitkomplexität: O(1)
 		return length;
 	}
 
 	public boolean isEmpty() { // Zeitkomplexität: O(1)
 		// Oder-Verknüpfung nicht nötig, wenn sauber gearbeitet
-		return head == null || tail == null;
+		return head == null || tail == null;  //oder return length == 0;
 	}
 
 	public boolean hasOneElement() { // Zeitkomplexität: O(1)
