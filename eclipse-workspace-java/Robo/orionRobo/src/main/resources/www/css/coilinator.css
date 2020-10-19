@@ -1,0 +1,17 @@
+.status-item { 
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
+.logo{
+    width:100%;
+    max-width:400px;
+}
+
+.tabButton{
+	font-size: 1.5rem;
+} 
+
+#condensatorValue {
+    border: none;
+}

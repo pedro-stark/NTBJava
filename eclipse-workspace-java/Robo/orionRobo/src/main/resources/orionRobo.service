@@ -1,0 +1,18 @@
+[Unit]
+Description=OrionRobo Service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Environment=PARAM=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=6006
+Environment=VERSION=0.0.1
+Environment=JARFILENAME=orionRobo
+Restart=always
+RestartSec=1
+User=root
+WorkingDirectory=/opt/orionRobo
+ExecStart=/usr/bin/java ${PARAM} -jar  /opt/orionRobo/${JARFILENAME}-${VERSION}.jar
+
+[Install]
+WantedBy=multi-user.target

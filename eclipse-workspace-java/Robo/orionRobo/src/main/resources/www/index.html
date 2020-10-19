@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/coilinator.css">
+<title>Coilinator 300V Control</title>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/Chart.bundle.min.js"></script>
+
+
+
+</head>
+<body>
+	<main role="main" class="container">
+	<div class="text-center">
+		<img src="logo.jpg" alt="Coilinator 300V Control" class="logo">
+	</div>
+
+	<div id="alertsContainer" class="container"></div>
+	<!--<h1>Coilinator 300V Control</h1>-->
+
+	<div class="form-group  mt-5">
+		<h2>Control Center</h2>
+		<div>
+			<div class="status-item">
+				Status:&nbsp;<span id="statusvalue" class="badge badge-secondary">None</span>
+				&nbsp;
+
+			</div>
+			<div class="status-item">
+				Position:&nbsp;<span id="positionValue"
+					class="badge badge-secondary">no</span> &nbsp;
+
+			</div>
+			<div class="status-item">
+				Loading capacitor:&nbsp;<button id="condensatorValue"
+					class="badge badge-secondary">not charged</button> &nbsp;
+
+			</div>
+			<div class="status-item">
+				Has Ball:&nbsp;<span id="hasBall" class="badge badge-secondary">false</span>
+				&nbsp;
+
+			</div>
+		</div>
+			<div>
+			
+			<div class="status-item">
+				Partner connected:&nbsp;<span id="partnerConnectedValue"
+					class="badge badge-danger">no</span> &nbsp;
+
+			</div>
+			<div class="status-item">
+				Partner Status:&nbsp;<span id="statusValuePartner" class="badge badge-secondary">None</span>
+				&nbsp;
+
+			</div>
+			<div class="status-item">
+				Partner Position:&nbsp;<span id="positonValuePartner" class="badge badge-secondary">None</span>
+				&nbsp;
+
+			</div>
+		</div>
+		<div class="mt-2">
+			<button id="btAutonomous" type="button" class="btn btn-success">Autonomousmode: On</button>
+			<button id="btKill" type="button" class="btn btn-danger">Kill</button>
+			<button id="btReboot" type="button" class="btn btn-warning">Reboot</button>
+		</div>
+	</div>
+
+
+
+	<div id="accordion">
+		<div class="card">
+			<div class="card-header" id="headingDrivePoint">
+				<h5 class="mb-0">
+					<button class="btn btn-link collapsed tabButton" data-toggle="collapse"
+						data-target="#collapseDrivePoint" aria-expanded="false"
+						aria-controls="collapseDrivePoint">
+						Drive to Point
+					</button>
+				</h5>
+			</div>
+
+			<div id="collapseDrivePoint" class="collapse"
+				aria-labelledby="headingDrivePoint" data-parent="#accordion">
+				<div class="card-body">
+					<input id="drivePointValue" class="form-control" type="text"
+						placeholder="30.5/40.5" >
+					<div class="mt-2">
+						<button id="btDrivePoint" type="button" class="btn btn-primary">Drive</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header" id="headingShootPoint">
+				<h5 class="mb-0">
+					<button class="btn btn-link collapsed tabButton" data-toggle="collapse"
+						data-target="#collapseShootPoint" aria-expanded="false"
+						aria-controls="collapseShootPoint">
+						Shoot to Point
+					</button>
+				</h5>
+			</div>
+
+			<div id="collapseShootPoint" class="collapse"
+				aria-labelledby="headingShootPoint" data-parent="#accordion">
+				<div class="card-body">
+					<input id="ShootPointValue" class="form-control" type="text"
+						placeholder="30.5/40.5">
+					<div class="mt-2">
+						<button id="btShootPoint" type="button" class="btn btn-primary">Shoot</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header" id="headingOne">
+				<h5 class="mb-0">
+					<button class="btn btn-link collapsed tabButton" data-toggle="collapse"
+						data-target="#collapseOne" aria-expanded="false"
+						aria-controls="collapseOne">
+						Drive straight ahead (mm)
+					</button>
+				</h5>
+			</div>
+
+			<div id="collapseOne" class="collapse"
+				aria-labelledby="headingOne" data-parent="#accordion">
+				<div class="card-body">
+					<input id="driveValue" class="form-control" type="number"
+						placeholder="200" value="100">
+					<div class="mt-2">
+						<button id="btDrive" type="button" class="btn btn-primary">Drive</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header" id="headingTwo">
+				<h5 class="mb-0">
+					<button class="btn btn-link collapsed tabButton" data-toggle="collapse"
+						data-target="#collapseTwo" aria-expanded="false"
+						aria-controls="collapseTwo">
+						Turn &deg; (degree)
+					</button>
+				</h5>
+			</div>
+			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+				data-parent="#accordion">
+				<div class="card-body">
+					<input id="turnValue" class="form-control" type="number"
+						placeholder="180" value="180">
+					<div class="mt-2">
+						<button id="btTurn" type="button" class="btn btn-primary">Turn</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header" id="headingFive">
+				<h5 class="mb-0">
+					<button class="btn btn-link collapsed tabButton" data-toggle="collapse"
+						data-target="#collapseFive" aria-expanded="false"
+						aria-controls="collapseFive">
+						Environment Detection
+					</button>
+				</h5>
+			</div>
+			<div id="collapseFive" class="collapse"
+				aria-labelledby="headingFive" data-parent="#accordion">
+				<div class="card-body">
+					<div style="width:75%">
+						<canvas id="fieldChart"></canvas>
+					</div>
+					<div class="mt-2">
+						<button id="initPos" type="button" class="btn btn-primary">Get initial position</button>
+						<button id="scanField" type="button" class="btn btn-primary">Get field</button>
+						<button id="autoRefreschField" type="button" class="btn btn-primary">Auto field refresh: Enabled</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header" id="headingThree">
+				<h5 class="mb-0">
+					<button class="btn btn-link collapsed tabButton" data-toggle="collapse"
+						data-target="#collapseThree" aria-expanded="false"
+						aria-controls="collapseThree">
+						VoiceCoil Shoot (mm)
+					</button>
+				</h5>
+			</div>
+			<div id="collapseThree" class="collapse"
+				aria-labelledby="headingThree" data-parent="#accordion">
+				<div class="card-body">
+					<input id="shootValue" class="form-control" type="number"
+						placeholder="200" value="100">
+					<div class="mt-2">
+						<button id="btShoot" type="button" class="btn btn-primary">Shoot</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-header" id="headingFour">
+				<h5 class="mb-0">
+					<button class="btn btn-link collapsed tabButton" data-toggle="collapse"
+						data-target="#collapseFour" aria-expanded="false"
+						aria-controls="collapseFour">
+						Voicecoil calibration
+					</button>
+				</h5>
+			</div>
+			<div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+				data-parent="#accordion">
+				<div class="card-body">
+
+					<textarea class="form-control" id="ControlTextarea1" rows="20"></textarea>
+					<div class="mt-2">
+						<button id="btStartC" type="button" class="btn btn-primary">Start
+							Calibration</button>
+						<button id="btSetC" type="button" class="btn btn-primary">Set
+							calibration</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p> &copy; 2018 NTB Systemtechnikprojekt
+			Team 7
+		</p>
+	</footer> </main>
+
+
+
+	<script>
+		$(document).ready(
+				function() {
+					$('#condensatorValue').click(
+							function() {
+								if($('#condensatorValue').hasClass('badge-success'))
+								{
+								$.get("/api/voicecoil/charging/disable",
+										function(data) {
+
+											createAlert('Loading capacitor: ', 'disabled');
+										});
+							
+								}
+							else{
+								$.get("/api/voicecoil/charging/enable",
+										function(data) {
+
+											createAlert('Loading capacitor: ', 'enabled');
+										});
+							
+								
+							}
+								
+							});
+					
+					$('#btAutonomous').click(
+							function() {
+								if($('#btAutonomous').hasClass('btn-success'))
+									{
+									$.get("/api/robo/stop",
+											function(data) {
+
+												createAlert('AutonomouseMode: ', 'disabled');
+											});
+								
+									}
+								else{
+									$.get("/api/robo/start",
+											function(data) {
+
+												createAlert('AutonomouseMode: ', 'enabled');
+											});
+								
+									
+								}
+							});	
+								
+					
+					$('#btReboot').click(
+							function() {
+								var d = new Date();
+								createAlert('Reboot:', d.toLocaleString());
+								$.get("/api/robo/reboot",
+										function(data) {
+
+											createAlert('Reboot: ', d.toLocaleString());
+										});
+							});
+
+					$('#btKill').click(
+							function() {
+								var d = new Date();
+								createAlert('Reboot:', d.toLocaleString());
+								$.get("/api/robo/kill",
+										function(data) {
+
+											createAlert('Kill: ', d.toLocaleString());
+										});
+							});
+					
+					$('#btDrive').click(
+							function() {
+								distance = $("#driveValue").val();
+								$.get("/api/move/goDistance/" + distance,
+										function(data) {
+
+											createAlert('Drive:', data);
+										});
+							});
+					$('#btShoot').click(
+							function() {
+								distance = $("#shootValue").val();
+								$.get("/api/voicecoil/shoot/" + distance,
+										function(data) {
+
+											createAlert('Shoot:', data);
+										});
+							});
+					
+					$('#btShootPoint').click(
+							function() {
+								distance = $("#shootPointValue").val();
+								$.get("/api/voicecoil/shoot/" + distance,
+										function(data) {
+
+											createAlert('Shoot:', data);
+										});
+							});
+					$('#btDrivePoint').click(
+							function() {
+								distance = $("#drivePointValue").val();
+								$.get("/api/move/goPosition/" + distance,
+										function(data) {
+
+											createAlert('Drive:', data);
+										});
+							});
+					
+					$('#btTurn').click(function() {
+						degree = $("#turnValue").val();
+						$.get("/api/move/goTurn/" + degree, function(data) {
+							createAlert('Turn:', data);
+						});
+					});
+
+					$('#btSetC').click(
+							function() {
+
+								$.post('/api/voicecoil/calibrate', $("#ControlTextarea1")
+										.text(), function(response) {
+									createAlert('Set calibraion: ', response);
+								}, 'json');
+							});
+					$('#btStartC').click(
+							function() {
+								console.log("StartCalibration");
+								$.getJSON("/api/voicecoil/calibrate", function(
+										data) {
+
+									$("#ControlTextarea1").text(
+											JSON.stringify(data, null, '\t'));
+								});
+							});
+
+					getStatus();
+					
+					var scatterChart = new Chart($("#fieldChart"), {
+					    type: 'scatter',
+					    data: {
+					        datasets: [{
+					            label: 'Scatter Dataset',
+					            data: [{
+					                x: -10,
+					                y: 0
+					            }, {
+					                x: 0,
+					                y: 10
+					            }, {
+					                x: 10,
+					                y: 5
+					            }]
+					        }]
+					    },
+					    options: {
+					        scales: {
+					            xAxes: [{
+					                type: 'linear',
+					                position: 'bottom'
+					            }]
+					        }
+					    }
+					});
+
+				});
+
+		function getStatus() {
+			$.get("/api/robo/status", function(data) {
+				$("#statusvalue").text(data.status);
+				$("#positionValue").text(data.position.xCoordinate + '/' + data.position.yCoordinate);
+				$("#hasBall").text(data.hasBall);
+				if(data.condensator)
+				{
+					$('#condensatorValue').removeClass( "badge-secondary" ).addClass( "badge-success" ).text(data.condensator);
+				}
+				else{
+					$('#condensatorValue').removeClass( "badge-success" ).addClass( "badge-secondary" ).text(data.condensator);
+				}
+				if(data.partnerConnected)
+				{
+					$('#partnerConnectedValue').removeClass( "badge-danger" ).addClass( "badge-success" ).text(data.partnerConnected);
+				}
+				else{
+					$('#partnerConnectedValue').removeClass( "badge-success" ).addClass( "badge-danger" ).text(data.partnerConnected);
+				}
+				$("#statusValuePartner").text(data.partnerStatus);
+				$("#positonValuePartner").text(data.partnerPosition.xCoordinate + '/' + data.partnerPosition.yCoordinate);
+				
+				if(data.autonomous)
+				{
+					$('#btAutonomous').removeClass( "btn-secondary" ).addClass( "btn-success" ).text("Autonomousmode: Enabled");
+				}
+				else{
+					$('#btAutonomous').removeClass( "btn-success" ).addClass( "btn-secondary" ).text("Autonomousmode: Disabled");
+				}
+				
+			});
+			setTimeout(getStatus, 1000);
+		}
+
+		function createAlert(command, message) {
+			id = uuidv4();
+			$('#alertsContainer')
+					.append(
+							'<div id="' + id  + '" class="alert alert-primary alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>'
+									+ command
+									+ ' </strong>'
+									+ message
+									+ '</div>'); 
+			
+			setTimeout(function() {
+				
+			    $("#"+ id).fadeTo(1000, 0).slideUp(1000, function(){
+			        $(this).remove(); 
+			    });
+			}, 5000);
+		}
+		
+		function uuidv4() {
+			  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+			    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+			    return v.toString(16);
+			  });
+			}
+		
+		
+	</script>
+
+</body>
+</html>
