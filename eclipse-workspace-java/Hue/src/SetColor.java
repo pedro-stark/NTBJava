@@ -10,6 +10,7 @@
 /*                                                                            */
 /******************************************************************************/
 import java.io.*;
+import java.util.Timer;
 
 /**
  * Sets the hue of a lamp on the Hue bridge.
@@ -53,10 +54,13 @@ public class SetColor {
 //         System.out.println( "error: hue is not a valid number" ) ;
 //         return ;
 //      }
-
+		System.out.println("init hue bridge");
 		HueBridge bridge = new HueBridge("http://192.168.0.46/api/P7j4vPm-NyIgIZuXfxqF00yevzCptd1pTKknrdZu/");
-		bridge.setLampOn(2, true);
-		bridge.setLampColor(2, 33420, 255);
+		Timer timer = new Timer();
+		timer.schedule(bridge, 0, 500);
 		bridge.setLampColorWheel(2);
+		//bridge.setLampOn(2, true);
+		//bridge.setLampColor(2, 33420, 255);
+		//bridge.setLampColorWheel(2);
 	}
 }

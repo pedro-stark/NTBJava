@@ -10,9 +10,11 @@
 /*                                                                            */
 /******************************************************************************/
 import java.net.*;
-import java.util.ArrayList;
 import java.util.TimerTask;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Sends commands to the Hue bridge.
@@ -22,6 +24,8 @@ public class HueBridge extends TimerTask {
 	private String baseURL;
 	private String actualURL;
 	private int state;
+	private int hue; //TODO löschen und in Klasse Lamp 
+
 	// private ArrayList<Lamp> = new ArrayList<Lamp>();
 
 	/**
@@ -29,7 +33,7 @@ public class HueBridge extends TimerTask {
 	 *
 	 * The base url is the part up to "lights".
 	 */
-	public HueBridge(String baseurl) {
+	public HueBridge(String baseurl){
 		this.baseURL = baseurl;
 		this.actualURL = baseurl;
 	}
@@ -118,6 +122,9 @@ public class HueBridge extends TimerTask {
 
 	public void setLampColorWheel(int lamp) {
 		state = 1; 
+		run();
+		actualURL = baseURL + "lights/" + lamp + "/state";
+		//String jsonInputString;
 
 	}
 
@@ -138,7 +145,20 @@ public class HueBridge extends TimerTask {
 		 */
 		switch (state) {
 		case 1: //Colorwheel
+			// Farben im Kreis
+			if (hue < 0 || hue > 65535) {
+				hue = 0;
+			}
 
+			String jsonInputString = "{\"sat\":255, \"bri\":" + 255 + ", \"hue\":" + hue + "}";
+			hue += 4000;
+			try {
+				setLampState(jsonInputString);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+			
 			break;
 		case 2:
 
