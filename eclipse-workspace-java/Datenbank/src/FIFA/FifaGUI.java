@@ -23,22 +23,22 @@ public class FifaGUI {
     private  JTextField   clubField          = new JTextField ();
     private  JTextField   nationField        = new JTextField ();
     
-    private  JButton      nextPlayerButton   = new JButton("next Player");
+    private  JButton      nextPlayerBtn   	 = new JButton(">");
+    private  JButton      prevPlayerBtn  	 = new JButton("<");
     
     private  JPanel       GridlayoutPanel    = new JPanel();
     
     private  Thread		  runTime;
     
-
 	public FifaGUI() {
 		runTime = new Thread() {
-            public void run () { 
-                while (true) {
-                	
+			public void run() {
+				while (true) {
 
-                    }
-                }
-            };
+				}
+			}
+		};
+
 	}
 
 	public static void main(String[] args) {
