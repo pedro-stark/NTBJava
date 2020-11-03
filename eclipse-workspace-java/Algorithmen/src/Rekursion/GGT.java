@@ -2,8 +2,9 @@ package Rekursion;
 
 public class GGT {
 
-	public GGT() {
-		// TODO Auto-generated constructor stub
+	public int GGT(int a, int b) {
+			if (a=b)
+		return 
 	}
 
 	public static void main(String[] args) {

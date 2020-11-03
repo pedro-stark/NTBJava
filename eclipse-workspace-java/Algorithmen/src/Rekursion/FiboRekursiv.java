@@ -2,7 +2,7 @@ package Rekursion;
 //Kapitel 2, Aufgabe 5
 public class FiboRekursiv {
 
-	public static int fib(int n) {
+	public static int fib(long n) {
 		int fibn;
 		
 		if (n==0 || n==1) {
