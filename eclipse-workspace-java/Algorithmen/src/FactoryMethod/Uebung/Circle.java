@@ -1,8 +1,7 @@
-package FactoryMethod.Shape;
+package FactoryMethod.Uebung;
 
-public class Circle implements Shape {
-
-	   @Override
+public class Circle{
+	
 	   public void draw() {
 	      System.out.println("Circle is being drawn");
 	   }

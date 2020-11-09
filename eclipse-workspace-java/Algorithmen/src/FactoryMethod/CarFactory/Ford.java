@@ -2,16 +2,14 @@ package FactoryMethod.CarFactory;
 
 public class Ford implements Car{
 
-	String color;
-	String interior;
+	private String color;
 	
 	public Ford(String color) {
 		this.color = color;
-		this.interior = "cloth";
 	}
 	
-	public void show() {
-		System.out.println("I am a " + color + " Ford with " + interior + " interior." );
+	public void drive() {
+		System.out.println(color + " Ford starts driving" );
 	}
 
 }

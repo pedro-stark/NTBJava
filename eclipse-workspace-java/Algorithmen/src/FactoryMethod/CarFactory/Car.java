@@ -2,6 +2,6 @@ package FactoryMethod.CarFactory;
 
 public interface Car {
 	
-	public void show();
+	public void drive();
 
 }

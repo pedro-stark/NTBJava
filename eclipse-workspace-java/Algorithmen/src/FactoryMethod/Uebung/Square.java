@@ -1,8 +1,7 @@
-package FactoryMethod.Shape;
+package FactoryMethod.Uebung;
 
-public class Square implements Shape {
-	
-	   @Override
+public class Square{
+
 	   public void draw() {
 	      System.out.println("Square is being drawn");
 	   }

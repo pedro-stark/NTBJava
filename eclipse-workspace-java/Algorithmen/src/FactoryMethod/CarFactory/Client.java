@@ -6,13 +6,13 @@ public class Client {
 		CarFactory CF = new CarFactory();
 		
 		Car car1 = CF.getCar("Porsche", "blue");
-		car1.show();
+		car1.drive();
 		
 		Car car2 = CF.getCar("Ford", "black");
-		car2.show();
+		car2.drive();
 		
 		Car car3 = CF.getCar("Ferrari", "red");
-		car3.show();
+		car3.drive();
 		
 	}
 

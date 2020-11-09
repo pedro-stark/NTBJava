@@ -1,8 +1,7 @@
-package FactoryMethod.Shape;
+package FactoryMethod.Uebung;
 
-public class Rectangle implements Shape {
+public class Rectangle{
 
-	   @Override
 	   public void draw() {
 	      System.out.println("Rectangle is being drawn");
 	   }
