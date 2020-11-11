@@ -17,7 +17,8 @@ public class MotoFabrik extends FahrzeugFabrik {
 			dummyzaehler = 0;
 			return new Honda(color);
 		}
-		return null;
+		return null; 
 	}
 
-}
+} 
+ 

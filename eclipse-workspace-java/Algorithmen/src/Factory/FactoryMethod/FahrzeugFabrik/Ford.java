@@ -10,6 +10,7 @@ public class Ford implements Fahrzeug{
 	
 	public void fahren() {
 		System.out.println("Auto der Marke Ford mit Farbe " + color + " fängt an zu fahren");
-	}
+	} 
 
-}
+} 
+ 

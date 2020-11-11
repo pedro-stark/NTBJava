@@ -16,13 +16,20 @@ public class Kunde {
 		FahrzeugFabrik mf = new MotoFabrik();
 		Fahrzeug moto1 = mf.getFahrzeug("rot"); 
 		moto1.fahren();
-		
+		  
 		Fahrzeug moto2 = mf.getFahrzeug("rot");
 		moto2.fahren();
 		
 		Fahrzeug moto3 = mf.getFahrzeug("rot");
 		moto3.fahren();
 		
-	}
+		FahrzeugFabrik lkwf = new LKWFabrik();
+		
+		Fahrzeug lkw1 = lkwf.getFahrzeug("gelb");
+		lkw1.fahren();
+		
+		Fahrzeug lkw2 = lkwf.getFahrzeug("gelb");
+		lkw2.fahren();
+	} 
 
 }

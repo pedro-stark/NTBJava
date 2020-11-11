@@ -10,9 +10,9 @@ public class Dim3Fabrik extends FormenFabrik{
 			return new Pyramide();
 
 		} else if (ecken == 8) {
-			return new Wuerfel();
+			return new Wuerfel(); 
 		}
-		else {
+		else { 
 			return null;
 		}
 	}

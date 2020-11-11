@@ -6,4 +6,4 @@ public class Rechteck implements Form {
 	   public void zeichnen() {
 	      System.out.println("Rechteck wird gezeichnet");
 	   }
-	}
+	}  

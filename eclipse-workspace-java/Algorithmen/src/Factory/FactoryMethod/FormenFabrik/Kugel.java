@@ -6,4 +6,4 @@ public class Kugel implements Form {
 	   public void zeichnen() {
 	      System.out.println("Kugel wird gezeichnet");
 	   }
-	}
+	}  

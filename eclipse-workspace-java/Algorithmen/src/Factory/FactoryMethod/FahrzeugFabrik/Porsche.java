@@ -12,3 +12,4 @@ public class Porsche implements Fahrzeug{
 		System.out.println("Auto der Marke Porsche mit Farbe " + color + " fängt an zu fahren");
 	} 
 }
+   

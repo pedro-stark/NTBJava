@@ -7,10 +7,10 @@ public class Dim2Fabrik extends FormenFabrik{
 			return new Kreis();
 
 		} else if (ecken == 3) {
-			return new Dreieck();
+			return new Dreieck(); 
 
 		} else if (ecken == 4) {
-			return new Rechteck();
+			return new Rechteck(); 
 		}
 		else {
 			return null;

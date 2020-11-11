@@ -2,7 +2,7 @@ package Factory.FactoryMethod.FahrzeugFabrik;
 
 
 public class AutoFabrik extends FahrzeugFabrik {
-	
+	 
 	int dummyzaehler = 0;
 	
 	public Fahrzeug getFahrzeug(String color) {
@@ -13,9 +13,9 @@ public class AutoFabrik extends FahrzeugFabrik {
 			dummyzaehler = 2;
 			return new Porsche(color);
 		} else if (dummyzaehler == 2) {
-			dummyzaehler = 0;
+			dummyzaehler = 0; 
 			return new Ferrari(color);
 		}
-		return null;
+		return null; 
 	}
 }

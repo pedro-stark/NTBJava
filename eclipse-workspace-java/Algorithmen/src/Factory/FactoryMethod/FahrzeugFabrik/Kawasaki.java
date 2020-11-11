@@ -11,3 +11,4 @@ public class Kawasaki implements Fahrzeug{
 		System.out.println("Motorrad der Marke Kawasaki mit Farbe " + color + " fängt an zu fahren");
 	}
 }
+   

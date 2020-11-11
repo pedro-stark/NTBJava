@@ -6,4 +6,4 @@ public class Kreis implements Form {
 	   public void zeichnen() {
 	      System.out.println("Kreis wird gezeichnet");
 	   }
-	}
+	}  

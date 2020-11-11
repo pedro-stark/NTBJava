@@ -9,9 +9,9 @@ public class FormenFabrikTest {
       Form form1 = Dim2Fabrik.getForm(3);
       
       //zeichne Form (2D) mit 3 Ecken
-      form1.zeichnen();
+      form1.zeichnen(); 
       
-      //Erzeuge Form (2D) mit 4 Ecken
+      //Erzeuge Form (2D) mit 4 Ecken 
       Form form2 = Dim2Fabrik.getForm(4);
       
       //zeichne Form (2D) mit 4 Ecken

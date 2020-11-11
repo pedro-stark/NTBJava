@@ -6,4 +6,4 @@ public class Pyramide implements Form {
 	   public void zeichnen() {
 	      System.out.println("Pyramide wird gezeichnet");
 	   }
-	}
+	}  

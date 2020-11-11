@@ -6,4 +6,4 @@ public class Wuerfel implements Form {
 	   public void zeichnen() {
 	      System.out.println("Würfel wird gezeichnet");
 	   }
-	}
+	}  

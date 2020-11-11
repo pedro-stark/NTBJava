@@ -10,4 +10,5 @@ public class Ferrari implements Fahrzeug{
 	public void fahren() {
 		System.out.println("Auto der Marke Ferrari mit Farbe " + color + " fängt an zu fahren");
 	}
-}
+}  
+ 

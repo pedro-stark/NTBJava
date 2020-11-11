@@ -9,5 +9,6 @@ public class Yamaha implements Fahrzeug{
 	}
 	public void fahren() {
 		System.out.println("Motorrad der Marke Yamaha mit Farbe " + color + " fängt an zu fahren");
-	}
+	} 
 }
+ 

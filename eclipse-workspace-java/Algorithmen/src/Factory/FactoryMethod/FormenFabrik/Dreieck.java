@@ -6,4 +6,4 @@ public class Dreieck implements Form {
 	   public void zeichnen() {
 	      System.out.println("Dreieck wird gezeichnet");
 	   }
-	}
+	}  
