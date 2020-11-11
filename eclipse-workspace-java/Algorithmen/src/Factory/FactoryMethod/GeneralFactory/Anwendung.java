@@ -9,6 +9,6 @@ public class Anwendung {
 		
 		ProdukteFabrik pfB = new ProdukteFabrikA();
 		Produkt prodB1 = pfB.getProdukt("Produkt1");
-		prodB1.methode();
+		prodB1.methode(); 
 	}
 }

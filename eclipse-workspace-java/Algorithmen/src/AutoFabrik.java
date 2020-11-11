@@ -1,11 +1,9 @@
-package Factory.FactoryMethod.FahrzeugFabrik;
-
-
 public class AutoFabrik extends FahrzeugFabrik {
-	
+
 	int dummyzaehler = 0;
 	
 	public Fahrzeug getFahrzeug(String color) {
+
 		if (dummyzaehler == 0) {
 			dummyzaehler = 1;
 			return new Ford(color);
@@ -18,4 +16,5 @@ public class AutoFabrik extends FahrzeugFabrik {
 		}
 		return null;
 	}
+
 }
