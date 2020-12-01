@@ -1,9 +1,9 @@
 package Iterator.Notification;
 
 public class NotificationCollection implements Collection {
-	static final int MAX_ITEMS = 6;
-	int numberOfItems = 0;
-	Notification[] notificationList;
+	private static final int MAX_ITEMS = 6;
+	private int numberOfItems = 0;
+	private Notification[] notificationList;
 
 	public NotificationCollection() {
 		notificationList = new Notification[MAX_ITEMS];

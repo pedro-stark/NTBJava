@@ -1,7 +1,7 @@
 package Iterator.Notification;
 
 public class NotificationBar {
-	NotificationCollection notifications;
+	private NotificationCollection notifications;
 
 	public NotificationBar(NotificationCollection notifications) {
 		this.notifications = notifications;

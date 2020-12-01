@@ -2,7 +2,7 @@ package Iterator.Notification;
 
 public class Notification {
 
-	String notification;
+	private String notification;
 
 	public Notification(String notification) {
 		this.notification = notification;
