@@ -1,0 +1,8 @@
+123	567	890
+123	567	890
+
+Anzahl	Bezeichnung	Einzelpreis	Total
+2	Orange	1.00	2.00
+345	Reiskorn	0.01	3.45
+1	Porsche	1000000	1000000
+0123456789ABCDEF	0123456789abcdef	x	y
