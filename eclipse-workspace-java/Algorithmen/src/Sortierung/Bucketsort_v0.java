@@ -4,7 +4,7 @@ package Sortierung;
 //using bucket sort 
 import java.util.*; 
 
-class Bucketsort { 
+class Bucketsort_v0 { 
 
 	// Function to sort arr[] of size n 
 	// using bucket sort 
