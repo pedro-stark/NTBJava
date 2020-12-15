@@ -12,6 +12,8 @@ import javax.swing.text.*;
 import src.Patterns.MVC_3_JTable.v1.model.*; 
 
 public class DirectoryViewer extends JFrame implements TableModelListener {
+	
+	
 	private Directory model;
 	private JTable t;
 
