@@ -1,0 +1,4 @@
+das ist 
+ein 
+InPut File
+mit 4 Zeilen

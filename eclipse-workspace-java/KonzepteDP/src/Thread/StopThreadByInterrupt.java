@@ -24,10 +24,10 @@ public class StopThreadByInterrupt extends Thread {
 		System.out.println(Thread.currentThread().getName() + ": Interrupt Anforderung wird an Thread "+ st.getName() + " gesendet.");
 		st.interrupt();
 		System.out.println(Thread.currentThread().getName() + ": Interrupt Anforderung wurde an Thread "+ st.getName() + " gesendet.");
-		
-		try {	st.join(); } catch (InterruptedException e) {	}
+		System.out.println(st.isAlive());
+		try {	st.join(); } catch (InterruptedException e) {e.printStackTrace();}
 		System.out.println("Thread "+ st.getName() + " wurde beendet. Join mit Thread " +Thread.currentThread().getName() + " erfolgt.");
-
+		System.out.println(st.isAlive());
 		System.out.println("Thread " +Thread.currentThread().getName() + " terminiert.");
 	}
 }

@@ -11,6 +11,7 @@ public class Semaphore {
     public synchronized void p()  {
         while(value == 0)  {
             try {
+            	System.out.println("Semaphore ist voll. Aufrufender Thread wird zum warten angewiesen.");
                 wait();
             } catch(InterruptedException e){
             }
@@ -20,6 +21,8 @@ public class Semaphore {
 
     public synchronized void v()  {
         value++;
-        notify();
+    	System.out.println("Aufrufender Thread verlässt Semaphore. Ein Platz ist frei geworden");
+        //notifyAll();
+    	notify();
     }
 }
