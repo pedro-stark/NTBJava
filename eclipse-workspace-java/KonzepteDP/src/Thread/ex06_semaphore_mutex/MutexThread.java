@@ -9,7 +9,7 @@ class MutexThread extends Thread {
 		start();
 	}
 
-	public void run()  {
+	public void run(){
 		try {
 			while(true)  {
 				mutex.p();

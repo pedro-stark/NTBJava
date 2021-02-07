@@ -7,7 +7,7 @@ public class MyGenericClass<T, E> {
 	private T obj1;
 	private E obj2;
 	
-	public MyGenericClass(T obj1, E obj2) {
+	public MyGenericClass(T obj1, E obj2){
 		this.obj1 = obj1;
 		this.obj2 = obj2;
 	}
@@ -22,8 +22,8 @@ public class MyGenericClass<T, E> {
 		System.out.println(k);
 	}
 	
-	public <K extends Vater> void extendsVater(K k) {
-		System.out.println(k);
+	public <K extends Vater> K extendsVater(K k) {
+		return k;
 	}
 	
 	public void superVater(ArrayList<? super Vater> k) {
@@ -52,6 +52,7 @@ public class MyGenericClass<T, E> {
 		Grossvater grossvater3 = new Grossvater("Grossvater C");
 		Vater vater = new Vater("Vater A");			  //extends Grossvater
 		Kind kind = new Kind("Kind A");			  //extends Vater
+		try{Kind kind2 = new Kind();}catch(Exception e){e.printStackTrace();}finally {System.out.println("dismami");}			  
 		
 		System.out.println("----------------Test der Methode extendsVater: upperBounds----------------");
 		//m1.extendsVater(grossvater);
@@ -71,9 +72,18 @@ public class MyGenericClass<T, E> {
 		System.out.println(list);
 		list.sort((obj1,obj2) -> {return obj1.compareTo(obj2);});
 		System.out.println(list);
+		
+		Vater daddy = kind;
+		//Kind kiddo = (Kind) vater;		
+		System.out.println(daddy.toString());
 	}
 	
-	public static synchronized <K> void sort(K k){
-		//Hauptsache längster Methodenkopf überhaupt
+	public static synchronized <K> MyGenericClass forthelulz(K k) throws Exception{
+		String[] a = {"a", "b", "c", "d", "e", "f"};
+		Integer[] b = {1,2,3,4,5,6,7};
+		int[] c = {1,2,3,4,5,6,7};
+		int d = 1;
+		MyGenericClass<Integer[], K> m = new MyGenericClass<>(b, k);
+		return m;
 	}
 }

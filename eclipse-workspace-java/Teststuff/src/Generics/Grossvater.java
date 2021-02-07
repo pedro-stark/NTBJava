@@ -4,7 +4,7 @@ public class Grossvater {
 
 	String name;
 	
-	public Grossvater() {
+	public Grossvater() throws Exception{
 		name = "Fritz";
 	}
 	

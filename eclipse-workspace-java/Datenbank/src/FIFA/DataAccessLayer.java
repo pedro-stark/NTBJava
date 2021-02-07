@@ -32,7 +32,7 @@ public class DataAccessLayer {
 		ds.setPassword(pwd);
 		ds.setServerName(server);
 		ds.setPortNumber(Integer.parseInt(port));
-		ds.setDatabaseName(dbName);
+		ds.setDatabaseName(dbName);     
 		conn = null;
 		stmt = null;
 	}

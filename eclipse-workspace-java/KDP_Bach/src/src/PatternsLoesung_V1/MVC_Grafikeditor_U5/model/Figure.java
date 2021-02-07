@@ -35,63 +35,6 @@ public class Figure implements TreeModel, TableModel {
 		parent = null;
 	}
 
-	public int getX() {
-		return x;
-	}
-	
-	public int getAbsX() {
-		return parent != null ? parent.getAbsX() + getX() : getX();
-	}
-		
-	public void setX(int x) {
-		this.x = x;
-		notifyObservers();
-	}
-
-	public int getY() {
-		return y;
-	}
-	
-	public int getAbsY() {
-		return parent != null ? parent.getAbsY() + getY() : getY();
-	}
-
-	public void setY(int y) {
-		this.y = y;
-		notifyObservers();
-	}
-	
-	public Color getColor() {
-		return color;
-	}
-	
-	public void setColor(Color color) {
-		this.color = color;
-		notifyObservers();
-	}
-	
-	public int getBoundingBoxWidth() {
-		return 0;
-	}
-	
-	public int getBoundingBoxHeight() {
-		return 0;
-	}
-	
-	public String toString() {
-		return toString(0);
-	}
-	
-	public String toString(int level) {
-		String s = ""; for (int i = 0; i < level; i++) { s += "  "; }
-		return s + this.getClass().getName() 
-				+ " (" + x + ", " + y + ", " 
-				+ this.getBoundingBoxWidth() + ", " + this.getBoundingBoxHeight() + ") "
-				+ this.color.toString()
-				+ " <" + getAbsX() + ", " + getAbsY() + "> " 
-				;
-	}
-
 	public void paint(Graphics gc) {
 		//nothing to do
 	}
@@ -230,4 +173,61 @@ public class Figure implements TreeModel, TableModel {
 		if (col == 2) { setY((Integer)val); } 
 	}
 
+	public int getX() {
+		return x;
+	}
+	
+	public int getAbsX() {
+		return parent != null ? parent.getAbsX() + getX() : getX();
+	}
+		
+	public void setX(int x) {
+		this.x = x;
+		notifyObservers();
+	}
+
+	public int getY() {
+		return y;
+	}
+	
+	public int getAbsY() {
+		return parent != null ? parent.getAbsY() + getY() : getY();
+	}
+
+	public void setY(int y) {
+		this.y = y;
+		notifyObservers();
+	}
+	
+	public Color getColor() {
+		return color;
+	}
+	
+	public void setColor(Color color) {
+		this.color = color;
+		notifyObservers();
+	}
+	
+	public int getBoundingBoxWidth() {
+		return 0;
+	}
+	
+	public int getBoundingBoxHeight() {
+		return 0;
+	}
+	
+	public String toString() {
+		return toString(0);
+	}
+	
+	public String toString(int level) {
+		String s = ""; for (int i = 0; i < level; i++) { s += "  "; }
+		return s + this.getClass().getName() 
+				+ " (" + x + ", " + y + ", " 
+				+ this.getBoundingBoxWidth() + ", " + this.getBoundingBoxHeight() + ") "
+				+ this.color.toString()
+				+ " <" + getAbsX() + ", " + getAbsY() + "> " 
+				;
+	}
+	
 }

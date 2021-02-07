@@ -11,7 +11,7 @@ import javax.swing.event.TreeModelListener;
 public class Group extends Figure {
 	protected ArrayList<Figure> members;
 	protected boolean boundingBoxIsDrawn;
-
+	
 	public Group(int x, int y) {
 		super(x, y, Color.WHITE);
 		members = new ArrayList<>();

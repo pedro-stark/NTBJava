@@ -1,7 +1,7 @@
 package FIFA;
+
 //STEP 1. Import required packages
 import java.sql.*;
-
 import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 
 public class FirstExample {
@@ -13,25 +13,86 @@ public class FirstExample {
 //	static final String USER = "username";
 //	static final String PASS = "password";
 
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		// Create datasource.
-		 SQLServerDataSource ds = new SQLServerDataSource(); 
-		 ds.setUser("Neuchatel"); 
-		 ds.setPassword("DB19"); 
-		 ds.setServerName("inf008.ntb.ch"); 
-		 ds.setPortNumber(Integer.parseInt("1433"));
+		SQLServerDataSource ds = new SQLServerDataSource();
+		ds.setUser("Neuchatel");
+		ds.setPassword("DB19");
+		ds.setServerName("inf008.ost.ch");
+		ds.setPortNumber(Integer.parseInt("1433"));
 		ds.setDatabaseName("STARK");
 		Connection conn = null;
 		Statement stmt = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = ds.getConnection();
+			pstmt = conn.prepareStatement("INSERT INTO Players (Name, Age, Player_ID, Club_ID, Nation_ID) VALUES (?, ?, ?, ?, ?)");
+			pstmt.setString(1, "Ueli");
+			pstmt.setFloat(2, 13);
+			pstmt.setFloat(3, 500001);
+			pstmt.setInt(4, 500001);
+			pstmt.setInt(5, 500001);
+			
+			System.out.println(pstmt.executeUpdate());
+			
+			/*
+			
+			pstmt = conn.prepareStatement("SELECT Name, Age, Player_ID, Club_ID, Nation_ID FROM Players WHERE Player_ID > ?");
+			pstmt.setFloat(1, 200000);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				// Retrieve by column name
+				String name = rs.getString("Name");
+				int age = rs.getInt("Age");
+				int player_ID = rs.getInt("Player_ID");
+				int club_ID = rs.getInt("Club_ID");
+				int nation_ID = rs.getInt("Nation_ID");
 
+				// Display values
+				System.out.print("Name: " + name);
+				System.out.print(", Age: " + age);
+				System.out.print(", ID: " + player_ID);
+				System.out.print(", Club_ID: " + club_ID);
+				System.out.println(", Nation_ID: " + nation_ID);
+			}
+
+			// STEP 6: Clean-up environment
+			rs.close();
+			pstmt.close();
+			conn.close();
+			*/
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();
+		} catch (Exception e) {
+			// Handle errors for Class.forName
+			e.printStackTrace();
+		} finally {
+			// finally block used to close resources
+			try {
+				if (pstmt != null)
+					pstmt.close();
+			} catch (SQLException se2) {
+			} // nothing we can do
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} // end finally try
+		} // end try
+		
+		/*
+		
 		try {
 			// STEP 2: Register JDBC driver
-			//Class.forName("com.mysql.jdbc.Driver");
+			// Class.forName("com.mysql.jdbc.Driver");
 
 			// STEP 3: Open a connection
 //			System.out.println("Connecting to database...");
 //			conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			conn = ds.getConnection(); 
+			conn = ds.getConnection();
 
 			// STEP 4: Execute a query
 			System.out.println("Creating statement...");
@@ -48,7 +109,6 @@ public class FirstExample {
 				int player_ID = rs.getInt("Player_ID");
 				int club_ID = rs.getInt("Club_ID");
 				int nation_ID = rs.getInt("Nation_ID");
-				
 
 				// Display values
 				System.out.print("Name: " + name);
@@ -57,7 +117,7 @@ public class FirstExample {
 				System.out.print(", Club_ID: " + club_ID);
 				System.out.println(", Nation_ID: " + nation_ID);
 			}
-			
+
 			// STEP 6: Clean-up environment
 			rs.close();
 			stmt.close();
@@ -82,6 +142,7 @@ public class FirstExample {
 				se.printStackTrace();
 			} // end finally try
 		} // end try
+		*/
 		System.out.println("Goodbye!");
 	}// end main
 }// end FirstExample

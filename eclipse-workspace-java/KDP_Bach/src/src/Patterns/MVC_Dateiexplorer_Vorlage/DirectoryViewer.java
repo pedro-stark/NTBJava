@@ -8,11 +8,13 @@ import java.awt.event.*;
 import java.io.File;
 
 import javax.swing.text.*;
+import MVC_3_JTable.v1.model.*; 
 
-import src.Patterns.MVC_3_JTable.v1.model.*; 
-
-public class DirectoryViewer extends JFrame implements TableModelListener {
+public class DirectoryViewer extends JFrame 
+	implements TableModelListener {
 	
+	static final int WIDTH = 600;
+	static final int HEIGHT = 400;
 	
 	private Directory model;
 	private JTable t;
@@ -20,15 +22,18 @@ public class DirectoryViewer extends JFrame implements TableModelListener {
 	public DirectoryViewer(Directory model, String version) {
 		super("Directory-Viewer " + version);
 
-		//diese Sicht soll bei Aenderungen im Modell benachrichtigt werden
 		this.model = model;
+
+		//diese Sicht soll bei Aenderungen im Modell benachrichtigt werden
 		model.addTableModelListener(this); 
+
 
 		//Content 
 		add(createContent(), BorderLayout.CENTER);
 		add(createToolbar(), BorderLayout.NORTH);
 
 		//berechne neues Layout
+		//setSize(WIDTH, HEIGHT);
 		pack();
 
 		//Terminierung der Applikation
@@ -72,6 +77,7 @@ public class DirectoryViewer extends JFrame implements TableModelListener {
 
 	@Override
 	public void tableChanged(TableModelEvent e) {
+		System.out.println("updateView called: " + this.getTitle() + " TableModelEvent: " + e);
 		t.updateUI();	
 	}
 
@@ -79,4 +85,5 @@ public class DirectoryViewer extends JFrame implements TableModelListener {
 
 
 }
+
 
