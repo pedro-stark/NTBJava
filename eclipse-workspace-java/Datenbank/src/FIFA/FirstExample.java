@@ -32,7 +32,6 @@ public class FirstExample {
 			pstmt.setFloat(3, 500001);
 			pstmt.setInt(4, 500001);
 			pstmt.setInt(5, 500001);
-			
 			System.out.println(pstmt.executeUpdate());
 			
 			/*
