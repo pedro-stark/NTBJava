@@ -57,7 +57,7 @@ public class SetColor {
 		System.out.println("init hue bridge");
 		HueBridge bridge = new HueBridge("http://192.168.0.46/api/P7j4vPm-NyIgIZuXfxqF00yevzCptd1pTKknrdZu/");
 		Timer timer = new Timer();
-		timer.schedule(bridge, 0, 500);
+		//timer.schedule(bridge, 0, 500);
 		bridge.setLampColorWheel(2);
 		//bridge.setLampOn(2, true);
 		//bridge.setLampColor(2, 33420, 255);

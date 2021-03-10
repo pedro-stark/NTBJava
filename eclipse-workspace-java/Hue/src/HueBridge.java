@@ -20,11 +20,11 @@ import java.util.TimerTask;
  * Sends commands to the Hue bridge.
  */
 
-public class HueBridge extends TimerTask {
+public class HueBridge extends Thread {
 	private String baseURL;
 	private String actualURL;
-	private int state;
-	private int hue; //TODO löschen und in Klasse Lamp 
+	private int bridgeState;
+	private int hue; // TODO löschen und in Klasse Lamp
 
 	// private ArrayList<Lamp> = new ArrayList<Lamp>();
 
@@ -33,9 +33,10 @@ public class HueBridge extends TimerTask {
 	 *
 	 * The base url is the part up to "lights".
 	 */
-	public HueBridge(String baseurl){
+	public HueBridge(String baseurl) {
 		this.baseURL = baseurl;
 		this.actualURL = baseurl;
+		bridgeState = 0; //Default, do nothing
 	}
 
 	/**
@@ -49,7 +50,7 @@ public class HueBridge extends TimerTask {
 
 		URL url = new URL(actualURL);
 		HttpURLConnection connection = null;
-
+		System.out.println("JSON File");
 		try {
 			// JSON PUT REQUEST build
 			connection = (HttpURLConnection) url.openConnection();
@@ -121,59 +122,64 @@ public class HueBridge extends TimerTask {
 	}
 
 	public void setLampColorWheel(int lamp) {
-		state = 1; 
-		run();
+		bridgeState = 1;
+		System.out.println("bridgeState: 1 (ColorWheel)");
 		actualURL = baseURL + "lights/" + lamp + "/state";
-		//String jsonInputString;
+		// String jsonInputString;
 
 	}
 
 	public void run() {
-		
-		//TODO durch alle Lampen durchiterieren, ONCHANGE PUT BEFEHL
-		//TODO Methoden zur Farbänderung in Class Lamp?
-		
-		
-		/**
-		 * Hier wird der gewünschte Lichtstatus ausgewählt 
-		 * 
-		 * state default: do nothing
-		 * 
-		 * state 1: ColorWheel 
-		 * 
-		 * state 2: ColorBrightnessWheel
-		 */
-		switch (state) {
-		case 1: //Colorwheel
-			// Farben im Kreis
-			if (hue < 0 || hue > 65535) {
-				hue = 0;
-			}
-
-			String jsonInputString = "{\"sat\":255, \"bri\":" + 255 + ", \"hue\":" + hue + "}";
-			hue += 4000;
-			try {
-				setLampState(jsonInputString);
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
+	System.out.println("Thread started");
+		while (true) {
 			
-			
-			break;
-		case 2:
+			// TODO durch alle Lampen durchiterieren, ONCHANGE PUT BEFEHL
+			// TODO Methoden zur Farbänderung in Class Lamp?
 
-			break;
-		case 3:
+			/**
+			 * Hier wird der gewünschte Lichtstatus ausgewählt
+			 * 
+			 * state default: do nothing
+			 * 
+			 * state 1: ColorWheel
+			 * 
+			 * state 2: ColorBrightnessWheel
+			 */
+			switch (bridgeState) {
+			case 1: // Colorwheel
+				// Farben im Kreis
+				if (hue < 0 || hue > 65535) {
+					hue = 0;
+				}
 
-			break;
-		case 4:
+				String jsonInputString = "{\"sat\":255, \"bri\":" + 255 + ", \"hue\":" + hue + "}";
+				hue += 4000;
+				try {
+					setLampState(jsonInputString);
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				try {
+					sleep(200);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 
-			break;
+				break;
+			case 2:
 
-		default:
-			// Do nothing
-			break;
+				break;
+			case 3:
+
+				break;
+			case 4:
+
+				break;
+
+			default:
+				// Do nothing
+				break;
+			}
 		}
-
 	}
 }
