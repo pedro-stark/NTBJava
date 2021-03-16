@@ -23,6 +23,7 @@ import java.util.TimerTask;
 public class HueBridge extends Thread {
 	private String baseURL;
 	private String actualURL;
+	private String jsonInputString;
 	private int bridgeState;
 	private int hue; // TODO löschen und in Klasse Lamp
 
@@ -36,7 +37,8 @@ public class HueBridge extends Thread {
 	public HueBridge(String baseurl) {
 		this.baseURL = baseurl;
 		this.actualURL = baseurl;
-		bridgeState = 0; //Default, do nothing
+		jsonInputString = null;
+		bridgeState = 0; // Default, do nothing
 	}
 
 	/**
@@ -50,7 +52,6 @@ public class HueBridge extends Thread {
 
 		URL url = new URL(actualURL);
 		HttpURLConnection connection = null;
-		System.out.println("JSON File");
 		try {
 			// JSON PUT REQUEST build
 			connection = (HttpURLConnection) url.openConnection();
@@ -60,12 +61,6 @@ public class HueBridge extends Thread {
 
 			// send JSON
 			OutputStreamWriter os = new OutputStreamWriter(connection.getOutputStream());
-
-//			Write Variante 1
-//  		try (java.io.OutputStream os = conn.getOutputStream()) {
-// 			byte[] input = json.getBytes("utf-8");
-// 			os.write(input, 0, input.length);
-// 			}
 
 			// Write Variante 2
 			os.write(json);
@@ -125,14 +120,20 @@ public class HueBridge extends Thread {
 		bridgeState = 1;
 		System.out.println("bridgeState: 1 (ColorWheel)");
 		actualURL = baseURL + "lights/" + lamp + "/state";
+	}
+
+	public void setPoliceMode(int lamp) {
+		bridgeState = 2;
+		System.out.println("bridgeState: 2 (PoliceMode)");
+		actualURL = baseURL + "lights/" + lamp + "/state";
 		// String jsonInputString;
 
 	}
 
 	public void run() {
-	System.out.println("Thread started");
+		System.out.println("Thread started");
 		while (true) {
-			
+
 			// TODO durch alle Lampen durchiterieren, ONCHANGE PUT BEFEHL
 			// TODO Methoden zur Farbänderung in Class Lamp?
 
@@ -152,26 +153,36 @@ public class HueBridge extends Thread {
 					hue = 0;
 				}
 
-				String jsonInputString = "{\"sat\":255, \"bri\":" + 255 + ", \"hue\":" + hue + "}";
+				jsonInputString = "{\"sat\":255, \"bri\":" + 255 + ", \"hue\":" + hue + "}";
 				hue += 4000;
 				try {
 					setLampState(jsonInputString);
+					sleep(1000);
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
+				break;
+
+			case 2: // Police
+				if (hue == 44000) {
+					hue = 0;
+				} else {
+					hue = 44000;
+				}
+				jsonInputString = "{\"sat\":255, \"bri\":" + 255 + ", \"hue\":" + hue + "}";
 				try {
-					sleep(200);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
+					setLampState(jsonInputString);
+					sleep(1000);
+				} catch (Exception e) {
+					// TODO: handle exception
 				}
 
 				break;
-			case 2:
-
-				break;
+				
 			case 3:
 
 				break;
+				
 			case 4:
 
 				break;
