@@ -104,7 +104,7 @@ public class HueBridge extends Thread {
 		String jsonInputString;
 
 		if (lampSwitch) {
-			jsonInputString = "{\"on\":true}";
+			jsonInputString = "{\"on\":true, \"transitiontime\":0}";
 		} else {
 			jsonInputString = "{\"on\":false}";
 		}
@@ -144,7 +144,7 @@ public class HueBridge extends Thread {
 			 * 
 			 * state 1: ColorWheel
 			 * 
-			 * state 2: ColorBrightnessWheel
+			 * state 2: Policemode
 			 */
 			switch (bridgeState) {
 			case 1: // Colorwheel
@@ -153,7 +153,7 @@ public class HueBridge extends Thread {
 					hue = 0;
 				}
 
-				jsonInputString = "{\"sat\":255, \"bri\":" + 255 + ", \"hue\":" + hue + "}";
+				jsonInputString = "{\"sat\":255, \"bri\":" + 255 + ", \"hue\":" + hue + ", \"transitiontime\":0}";
 				hue += 4000;
 				try {
 					setLampState(jsonInputString);

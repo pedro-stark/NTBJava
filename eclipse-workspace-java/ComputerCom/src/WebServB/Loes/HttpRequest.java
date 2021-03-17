@@ -134,9 +134,9 @@ public class HttpRequest implements Runnable {
 	    	// statusLine = "HTTP/1.0 404 Not Found";
 	    	statusLine = "HTTP/1.0 200 OK";
 	    	contentTypeLine = "Content-type: text/html" + CRLF;
-	    	entityBody = "<HTML><HEAD><TITLE>Not Found</TITLE></HEAD><BODY>Not Found</BODY></HTML>";
+	    	entityBody = "<HTML><HEAD><TITLE>Java WEBSERVER</TITLE></HEAD><BODY>This Page was made with JAVA</BODY></HTML>";
 	    } // if
-	    
+	     
 	    // Statuszeile schicken
 	    os.writeBytes (statusLine);
 	    // Antworttyp schicken 
