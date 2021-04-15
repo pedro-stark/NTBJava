@@ -1,0 +1,19 @@
+/* -------------------------
+     ServletException.java
+   ------------------------- */
+
+
+/*  Computerkommunikation & Verteilte Systeme 2012/2013, Rene Pawlitzek, NTB  */
+
+
+package ch.ntb.inf.coko.engine;
+
+
+public class ServletException extends Exception {
+
+	private static final long serialVersionUID = -4487265267311428160L;	
+	
+} // ServletException
+
+
+/* ----- End of File ----- */

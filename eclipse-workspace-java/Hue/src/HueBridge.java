@@ -45,7 +45,6 @@ public class HueBridge extends Thread {
 	 * Sends the given JSON string with the command for the given lamp to the
 	 * bridge.
 	 *
-	 * @param lamp The number of the lamp
 	 * @param json The command to send
 	 */
 	public void setLampState(String json) throws IOException, HueException {
@@ -88,6 +87,10 @@ public class HueBridge extends Thread {
 		}
 	}
 
+	public void connectionTest() {
+		
+	}
+	
 	public void setLampColor(int lamp, int hue, int bri) {
 		actualURL = baseURL + "lights/" + lamp + "/state";
 		String jsonInputString = "{\"sat\":255, \"bri\":" + bri + ", \"hue\":" + hue + "}";
@@ -116,7 +119,13 @@ public class HueBridge extends Thread {
 		}
 	}
 
-	public void setLampColorWheel(int lamp) {
+	public void setIdle(int lamp) {
+		bridgeState = 0;
+		System.out.println("bridgeState: 0 (Idle)");
+		actualURL = baseURL + "lights/" + lamp + "/state";
+	}
+	
+	public void setColorWheel(int lamp) {
 		bridgeState = 1;
 		System.out.println("bridgeState: 1 (ColorWheel)");
 		actualURL = baseURL + "lights/" + lamp + "/state";
@@ -126,8 +135,6 @@ public class HueBridge extends Thread {
 		bridgeState = 2;
 		System.out.println("bridgeState: 2 (PoliceMode)");
 		actualURL = baseURL + "lights/" + lamp + "/state";
-		// String jsonInputString;
-
 	}
 
 	public void run() {
@@ -140,13 +147,18 @@ public class HueBridge extends Thread {
 			/**
 			 * Hier wird der gewünschte Lichtstatus ausgewählt
 			 * 
-			 * state default: do nothing
+			 * state 0: idle, do nothing
 			 * 
 			 * state 1: ColorWheel
 			 * 
 			 * state 2: Policemode
 			 */
 			switch (bridgeState) {
+			
+			case 0: //idle
+				//do Nothing
+				break;
+			
 			case 1: // Colorwheel
 				// Farben im Kreis
 				if (hue < 0 || hue > 65535) {
@@ -193,4 +205,13 @@ public class HueBridge extends Thread {
 			}
 		}
 	}
+	
+	public String getBaseURL() {
+		return baseURL;
+	}
+	
+	public String getActualURL() {
+		return actualURL;
+	}
+	
 }
