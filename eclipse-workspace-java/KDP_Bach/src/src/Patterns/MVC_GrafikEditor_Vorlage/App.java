@@ -1,5 +1,5 @@
 package src.Patterns.MVC_GrafikEditor_Vorlage;
-
+/*
 import java.awt.Color;
 import javax.swing.*;
 
@@ -41,3 +41,4 @@ public class App {
 	}
 
 }
+*/

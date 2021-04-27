@@ -6,6 +6,7 @@ import java.util.function.*;
 public class U38_A2 {
 
 	public static void main(String[] args) {
+		/*
 		// 2a
 		Predicate<Integer> isEven = i -> i % 2 == 0;
 		Predicate<Integer> isNull = ???;
@@ -33,7 +34,7 @@ public class U38_A2 {
 		for (int i = -3; i <= 3; i++) {
 			System.out.println("" + i + " positive and even? " + isPositiveAndEven.test(i) +
 					" positive and uneven? " + isPositiveAndUneven.test(i));
-		}
+		}*/
 	}
 
 }

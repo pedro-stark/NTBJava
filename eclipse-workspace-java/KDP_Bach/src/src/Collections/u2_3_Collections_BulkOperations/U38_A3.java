@@ -9,11 +9,11 @@ public class U38_A3 {
 		Person pErwachsen = new Person("Hans", 30);
 		Person pKind = new Person("Anna", 5);
 		
-		Predicate<Person> p18JahreOderAelter_V1 = ???; //als Lambda
-		Predicate<Person> p18JahreOderAelter_V2 = ???; //als Methodenreferenz
+		//Predicate<Person> p18JahreOderAelter_V1 = ???; //als Lambda
+		//Predicate<Person> p18JahreOderAelter_V2 = ???; //als Methodenreferenz
 		
-		System.out.println(pErwachsen + " Erwachsen? " + p18JahreOderAelter_V1.test(pErwachsen) + "/" + p18JahreOderAelter_V2.test(pErwachsen));
-		System.out.println(pKind + " Erwachsen? " + p18JahreOderAelter_V1.test(pKind) + "/" + p18JahreOderAelter_V2.test(pKind));
+		//System.out.println(pErwachsen + " Erwachsen? " + p18JahreOderAelter_V1.test(pErwachsen) + "/" + p18JahreOderAelter_V2.test(pErwachsen));
+		//System.out.println(pKind + " Erwachsen? " + p18JahreOderAelter_V1.test(pKind) + "/" + p18JahreOderAelter_V2.test(pKind));
 	}
 
 }

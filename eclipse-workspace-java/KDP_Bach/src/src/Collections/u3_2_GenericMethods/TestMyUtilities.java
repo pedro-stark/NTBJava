@@ -5,6 +5,7 @@ import java.util.*;
 public class TestMyUtilities {
 
 	public static void main(String[] args) {
+		/*
 		//2.1
 		System.out.println("-------------2.1");
 
@@ -39,6 +40,7 @@ public class TestMyUtilities {
 		System.out.println("Grösstes Element: " + MyUtilities.max(strArray, 1, 4)); //Hans
 		
 		System.out.println("-------------end of 2.3\n");
+		*/
 	}
 
 }

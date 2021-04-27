@@ -10,12 +10,12 @@ public class Parking
     	final int noOfCars = 10;
     	
     	//Die ParkingGarage ist die gemeinsam genutzte Ressource. Hier mit 5 Parkplätzen. 
-        ParkingGarage garage = new ParkingGarage(capacityOfGarage, noOfCars);
+//        ParkingGarage garage = new ParkingGarage(capacityOfGarage, noOfCars);
     	//ParkingGarageFair garage = new ParkingGarageFair(capacityOfGarage);
         
         //Erzeuge 10 Autos (das erste Argument ist der Thread-Name, das zweite die Garage.
         for(int i = 0; i < noOfCars; i++)  {
-            new Car("" + i, garage).start();
+//            new Car("" + i, garage).start();
         }
                
     }

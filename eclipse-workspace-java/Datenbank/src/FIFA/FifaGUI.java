@@ -6,14 +6,14 @@ import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.filechooser.*;
 
-import Pong.Spielfeld;
+//import Pong.Spielfeld;
 
 import java.io.*;
 import java.awt.image.*;
 import javax.imageio.*;
 
 public class FifaGUI extends JFrame{
-	
+/*	
     private  JLabel       idLabel            = new JLabel (" SpielerID: ");
     private  JLabel       nameLabel          = new JLabel (" Name: ");
     private  JLabel       ageLabel           = new JLabel (" Alter: ");
@@ -75,5 +75,5 @@ public class FifaGUI extends JFrame{
 		// TODO Auto-generated method stub
 
 	}
-
+*/
 }

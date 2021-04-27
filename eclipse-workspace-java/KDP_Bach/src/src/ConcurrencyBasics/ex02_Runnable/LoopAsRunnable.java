@@ -11,7 +11,7 @@ public class LoopAsRunnable implements Runnable
     	//TODO
     }
     
-    
+    /*
     public static void main(String[] args) {
         Thread t1 = ???; 
         Thread t2 = ???;
@@ -20,4 +20,5 @@ public class LoopAsRunnable implements Runnable
         t2.start();
         t3.start();
     }
+    */
 }

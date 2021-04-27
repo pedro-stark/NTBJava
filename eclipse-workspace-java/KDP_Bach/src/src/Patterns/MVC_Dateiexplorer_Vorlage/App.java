@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 
 import src.Patterns.MVC_3_JTable.v1.model.*;
 import src.Patterns.MVC_3_JTable.v1.view.*;
-
+/*
 public class App {
 
 	public static void main(String[] args) {
@@ -19,3 +19,4 @@ public class App {
 
 	}
 }
+*/

@@ -5,6 +5,7 @@ import java.util.*;
 public class TestZuweisungskompatibilität {
 	
 	public static void main(String[] args) {
+		/*
 		ArrayList<Fahrzeug> fuhrpark = new ArrayList<>();
 		
 		//1
@@ -60,7 +61,7 @@ public class TestZuweisungskompatibilität {
 		//2. geben Sie jedes Element mit System.out.println aus (als Lambda)
 		//3. geben Sie jedes Element mit System.out.println aus (als Methodenreferenz)
 		fuhrpark.forEach(???);
-	
+	*/
 	}
 
 }

@@ -10,6 +10,7 @@ public class U_39_A1 {
 	// - terminal
 
 	public static void main(String[] args) {
+		/*
 		//1b
 		String[] namesArray = { "Tim", "Tom", "Andy", "Mike", "Merten" };
 		List<String> names = Arrays.asList(namesArray);
@@ -30,6 +31,7 @@ public class U_39_A1 {
 
 		System.out.println("\nmapped");
 		mapped.forEach(System.out::println);
+		*/
 	}
 
 }

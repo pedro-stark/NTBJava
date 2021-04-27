@@ -1,5 +1,5 @@
 package src.Patterns.MVC_Dateiexplorer_Vorlage;
-
+/*
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
@@ -86,4 +86,4 @@ public class DirectoryViewer extends JFrame
 
 }
 
-
+*/

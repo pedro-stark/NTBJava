@@ -6,7 +6,7 @@
 /*  Computerkommunikation & Verteilte Systeme 2012/2013, Rene Pawlitzek, NTB  */
 
 
-package ch.ntb.inf.coko.engine;
+package SimpleServletEngine.Uebung;
 
 
 import java.io.IOException;
