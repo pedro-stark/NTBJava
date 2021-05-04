@@ -15,9 +15,10 @@ import java.awt.image.*;
 import java.io.*;
 import javax.imageio.*;
 import javax.servlet.*;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 
-
+@WebServlet("/MeterGraphic")
 public class MeterGraphicServlet extends HttpServlet {
 
 
