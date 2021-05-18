@@ -18,5 +18,11 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/pedro/OneDrive/Dokumente/IT Knowledge/JavaLibs/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pedro/OneDrive/Dokumente/IT Knowledge/JavaLibs/commons-lang3-3.12.0/commons-lang3-3.12.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pedro/OneDrive/Dokumente/IT Knowledge/JavaLibs/commons-lang3-3.12.0/commons-lang3-3.12.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pedro/OneDrive/Dokumente/IT Knowledge/JavaLibs/commons-lang3-3.12.0/commons-lang3-3.12.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pedro/OneDrive/Dokumente/IT Knowledge/JavaLibs/commons-lang3-3.12.0/commons-lang3-3.12.0-tests.jar"/>
+	<classpathentry kind="lib" path="C:/Users/pedro/OneDrive/Dokumente/IT Knowledge/JavaLibs/commons-lang3-3.12.0/commons-lang3-3.12.0-test-sources.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
